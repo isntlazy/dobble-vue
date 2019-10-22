@@ -1,2 +1,13 @@
-# dobble-vue
-Dobble Game on Vue.js. Uses web technologies logos on a cards
+# Dobble Web
+### Інтерпритація добре відомої багатьом гри Доббл
+### Для запуску виконуємо наступні дії
+## Крок 1
+```
+npm install
+```
+
+### Крок 2
+```
+npm run serve
+```
+
