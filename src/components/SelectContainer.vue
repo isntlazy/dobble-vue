@@ -3,7 +3,7 @@
     <h2>Залишилось: {{ countDown }} секунд</h2>
     <h4>Виберіть спільний елемент:</h4>
     <div class="select-elements">
-      <div class="darken" :key="index" v-for="(item, index) in items">
+      <div @click="itemClicked(item)" class="darken" :key="index" v-for="(item, index) in items">
         <img class="element" :src="require(`../assets/${item}.svg`)" :alt="item">
       </div>
     </div>
@@ -12,7 +12,7 @@
 <script>
 	export default {
 		name: 'SelectContainer',
-		props: ['items'],
+		props: ['items', 'commonItem'],
     data() {
 			return {
 				countDown : 60
@@ -32,6 +32,11 @@
 		    	this.$emit('endOfTime');
         }
 	    },
+	    itemClicked(item) {
+	    	if (item === this.commonItem) {
+			    this.$emit('nextCard');
+        }
+      }
     }
 	}
 </script>
@@ -52,6 +57,7 @@
     display: contents;
     background: black;
     padding: 0;
+    cursor: pointer;
   }
   div.darken img {
     -webkit-transition: all 0.3s linear;

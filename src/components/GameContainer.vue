@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="new-game" v-show="newGame">
+    <div class="new-game" v-if="newGame">
       <br>
       <p class="description">
         Доббл - це гра, у якій вам потрібно знайти один елемент (зображення), який присутній на двох картках одночасно.
@@ -11,15 +11,19 @@
         <img class="element" :src="require(`../assets/node.svg`)">
         <img class="element" :src="require(`../assets/react.svg`)">
       </p>
-      <div class="new-game-btn" @click="newGame = false">Нова Гра</div>
+      <div class="new-game-btn" @click="startGame">Нова Гра</div>
     </div>
-    <div v-show="!newGame">
-      <div class="cards" v-if="itemsFirst.length === 6 && itemsSecond.length === 6">
+    <div v-else>
+      <div class="cards" v-if="itemsFirst.length === 6 && itemsSecond.length === 6 && !gameOver">
         <circle-card :items="itemsFirst"></circle-card>
         <circle-card :items="itemsSecond"></circle-card>
-        <select-container @endOfTime="endGame" :items="items"/>
+        <select-container @nextCard="nextCard" @endOfTime="endGame" :common-item="commonItem" :items="items"/>
       </div>
-      <div class="points">
+      <div v-if="gameOver">
+        <h3>Кінець гри! Ваш результат: {{ points }} балів(и)</h3>
+        <div class="new-game-btn" @click="startGame">Нова Гра</div>
+      </div>
+      <div class="points" v-show="!gameOver">
         <h1>Кількість балів: {{ points }}</h1>
       </div>
     </div>
@@ -35,14 +39,14 @@
   data() {
 		return {
 			newGame: true,
+      gameOver: false,
 			points: 0,
 			items: ['git', 'postgres', 'angular', 'sass', 'vue', 'css3',
         'html5', 'react', 'jquery', 'mongodb', 'javascript', 'mysql',
         'nginx', 'node', 'redux', 'stylus', 'webpack', 'typescript'],
+      commonItem: null,
       itemsFirst: [],
       itemsSecond: [],
-      // itemsFirst: ['angular', 'git', 'postgres', 'sass', 'vue', 'css3'],
-			// itemsSecond: ['html5', 'react', 'jquery', 'angular', 'mongodb', 'javascript']
     }
   },
   mounted() {
@@ -58,9 +62,12 @@
     },
 	  generateItems() {
 			let itemsToUse = this.items;
+		  this.itemsFirst = [];
+		  this.itemsSecond = [];
 		  const commonItem = itemsToUse[this.generateRandomIndex(itemsToUse)];
 		  this.itemsFirst.push(commonItem);
 		  this.itemsSecond.push(commonItem);
+		  this.commonItem = commonItem;
 		  itemsToUse = itemsToUse.filter(item => item !== commonItem);
 		  for (let i = 0; i < 5; i++) {
 		  	const firstCardItem = itemsToUse[this.generateRandomIndex(itemsToUse)];
@@ -72,16 +79,21 @@
       }
 		  this.itemsFirst = this.shuffle(this.itemsFirst);
 		  this.itemsSecond = this.shuffle(this.itemsSecond);
-		  console.log(this.items);
     },
     generateRandomIndex(itemsArray) {
 			return Math.floor(Math.random() * itemsArray.length);
     },
+    startGame() {
+			this.points = 0;
+	    this.gameOver = false;
+			this.newGame = false;
+    },
 	  endGame() {
-			// alert('Час вийшов! Ваш результат: ' + this.points + 'балів')
+			this.gameOver = true;
     },
     nextCard() {
-
+      this.points++;
+      this.generateItems();
     }
   },
 	};
@@ -105,7 +117,7 @@
     transition: all 0.35s;
   }
   .new-game-btn:hover {
-    color: #DDDDDD;
+    color: #ddd;
     border-color: #ddd;
   }
   .description {
