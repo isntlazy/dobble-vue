@@ -1,12 +1,23 @@
 <template>
   <div class="circle">
-    <img class="element" :class="`element-${++index}`" :key="index" v-for="(item, index) in items" :src="require(`../assets/${item}.svg`)" :alt="item">
+    <img :class="[{small: isSmall()}, 'element-' + (index + 1)]"
+         class="element"
+         :key="index"
+         v-for="(item, index) in items"
+         :src="require(`../assets/${item}.svg`)"
+         :alt="item"
+    >
   </div>
 </template>
 
 <script>
 export default {
-	props: ['items']
+	props: ['items'],
+  methods: {
+		isSmall() {
+			return  Math.random() < 0.4;
+    }
+  }
 }
 </script>
 
@@ -17,13 +28,17 @@ export default {
     width: 280px;
     height: 280px;
     background: white;
-    border: 2px solid black;
     margin: 15px 15px 15px 40px;
+    box-shadow: 1px 0.5px 1px 0px #ffffff inset, 0px 1px 5px 0px #B3B3B3
   }
   .element {
     position: absolute;
     max-width: 100px;
     max-height: 55px;
+  }
+  .small {
+    max-width: 75px !important;
+    max-height: 40px !important;
   }
   .element-1 {
     top: 15px;
@@ -39,11 +54,11 @@ export default {
   }
   .element-4 {
     top: 210px;
-    left: 110px;
+    left: 103px;
   }
   .element-5 {
     top: 70px;
-    left: 160px;
+    left: 155px;
   }
   .element-6 {
     top: 150px;
