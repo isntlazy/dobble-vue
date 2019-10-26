@@ -73,7 +73,7 @@ export default {
     top: calc(150 / 1680 * 100vw);
     left: calc(160 / 1680 * 100vw)
   }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .circle {
       width: calc(165 / 375 * 100vw);
       height: calc(165 / 375 * 100vw);
@@ -93,8 +93,8 @@ export default {
       max-height: calc(28 / 375 * 100vw);
     }
     .small {
-      max-width: calc(39 / 375 * 100vw) !important;
-      max-height: calc(21 / 375 * 100vw) !important;
+      max-width: calc(45 / 375 * 100vw) !important;
+      max-height: calc(25 / 375 * 100vw) !important;
     }
     .element-1 {
       top: calc(10 / 375 * 100vw);
@@ -119,6 +119,48 @@ export default {
     .element-6 {
       top: calc(80 / 375 * 100vw);
       left: calc(85 / 375 * 100vw)
+    }
+  }
+
+  @media (max-width: 480px) {
+    .circle {
+      width: calc(190 / 375 * 100vw);
+      height: calc(190 / 375 * 100vw);
+      margin: calc(10 / 375 * 100vw) 0 !important;
+    }
+
+    .element {
+      position: absolute;
+      max-width: calc(62 / 375 * 100vw);
+      max-height: calc(38 / 375 * 100vw);
+    }
+    .small {
+      max-width: calc(55 / 375 * 100vw) !important;
+      max-height: calc(35 / 375 * 100vw) !important;
+    }
+    .element-1 {
+      top: calc(10 / 375 * 100vw);
+      left: calc(50 / 375 * 100vw);
+    }
+    .element-2 {
+      top: calc(50 / 375 * 100vw);
+      left: calc(20 / 375 * 100vw);
+    }
+    .element-3 {
+      top: calc(90 / 375 * 100vw);
+      left: calc(20 / 375 * 100vw);
+    }
+    .element-4 {
+      top: calc(130 / 375 * 100vw);
+      left: calc(65 / 375 * 100vw);
+    }
+    .element-5 {
+      top: calc(35 / 375 * 100vw);
+      left: calc(110 / 375 * 100vw);
+    }
+    .element-6 {
+      top: calc(80 / 375 * 100vw);
+      left: calc(105 / 375 * 100vw)
     }
   }
 </style>

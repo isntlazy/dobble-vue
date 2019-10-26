@@ -1,6 +1,5 @@
 <template>
   <div class="select-container">
-    <h2><span class="time-left">Залишилось: </span> {{ countDown }} секунд</h2>
     <h4>Виберіть спільний елемент:</h4>
     <div class="select-elements">
       <div @click="itemClicked(item)" class="darken" :key="index" v-for="(item, index) in items">
@@ -13,25 +12,7 @@
 	export default {
 		name: 'SelectContainer',
 		props: ['items', 'commonItem'],
-    data() {
-			return {
-				countDown : 3660
-      }
-    },
-		mounted() {
-			this.countDownTimer()
-		},
     methods: {
-	    countDownTimer() {
-		    if (this.countDown > 0) {
-			    setTimeout(() => {
-				    this.countDown -= 1;
-				    this.countDownTimer()
-			    }, 1000)
-		    } else {
-		    	this.$emit('endOfTime');
-        }
-	    },
 	    itemClicked(item) {
 	    	if (item === this.commonItem) {
 			    this.$emit('nextCard');
@@ -47,12 +28,12 @@
     flex: 0 0 50%;
   }
   .select-elements {
-    padding: 10px;
+    padding:  calc(10 / 1680 * 100vw);
   }
   .element {
-    margin: 10px;
-    max-width: 100px;
-    max-height: 52px;
+    margin:  calc(10 / 1680 * 100vw);
+    max-width:  calc(100 / 1680 * 100vw);
+    max-height:  calc(52 / 1680 * 100vw);
   }
   .darken {
     display: contents;
@@ -71,13 +52,21 @@
   div.darken:hover img {
     opacity: 0.6;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .select-container {
       flex: 0 0 100%;
       max-width: 100%;
     }
-    .time-left {
-      display: none;
+
+    .select-elements {
+      padding:  calc(5 / 375 * 100vw);
+    }
+    .element {
+      margin:  calc(5 / 375 * 100vw);
+      max-width:  calc(70 / 375 * 100vw);
+      max-height:  calc(30 / 375 * 100vw);
     }
   }
+
+
 </style>
