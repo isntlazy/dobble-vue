@@ -30,7 +30,8 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../assets/scss/general.scss";
   .time {
     max-width: 100%;
     flex: 0 0 100%;
@@ -50,8 +51,8 @@
 
     .time h2{
       position: absolute;
-      top: calc(17 / 375 * 100vw);
-      right: calc(15 / 375 * 100vw);
+      top: calc-size-mobile(17);
+      right: calc-size-mobile(15);
     }
 
   }

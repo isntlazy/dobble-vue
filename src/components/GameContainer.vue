@@ -103,7 +103,8 @@
 	};
 </script>
 
-<style>
+<style lang="scss">
+  @import "../assets/scss/general.scss";
   .new-game-btn {
     cursor: pointer;
     display: inline-block;
@@ -117,7 +118,7 @@
     font-weight: 400;
     color: #2c3e50;
     text-align: center;
-    font-size: calc(15 / 1680 * 100vw);
+    font-size: calc-size-desktop(15);
     transition: all 0.35s;
   }
   .new-game-btn:hover {
@@ -140,7 +141,7 @@
     align-items: center;
   }
   .points {
-    margin-left: calc(90 / 1680 * 100vw);
+    margin-left: calc-size-desktop(90);
     text-align: left;
   }
   @media (max-width: 768px) {
@@ -150,7 +151,10 @@
       justify-content: space-between;
     }
     h2 {
-      font-size: calc(20 / 375 * 100vw);
+      font-size: calc-size-mobile(20);
+    }
+    .new-game-btn {
+      font-size: calc-size-mobile(10);
     }
   }
 
@@ -159,9 +163,11 @@
       flex-direction: column;
       align-items: center;
     }
-
     .points {
       margin-left: 0;
+    }
+    .new-game-btn {
+      font-size: calc-size-mobile(14);
     }
   }
 </style>

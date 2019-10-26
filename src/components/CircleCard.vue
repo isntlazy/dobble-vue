@@ -21,146 +21,146 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../assets/scss/general.scss";
   .circle {
     position: relative;
     border-radius: 50%;
-    width: calc(300 / 1680 * 100vw);
-    height: calc(300 / 1680 * 100vw);
+    width: calc-size-desktop(300);
+    height: calc-size-desktop(300);
     background: white;
-    /*margin: calc(15 / 1680 * 100vw) calc(15 / 1680 * 100vw) calc(15 / 1680 * 100vw) calc(40 / 1680 * 100vw);*/
     box-shadow: 1px 0.5px 1px 0px #ffffff inset, 0px 1px 5px 0px #B3B3B3
   }
 
   .circle:first-of-type {
-    margin-left: calc(40 / 1680 * 100vw);
+    margin-left: calc-size-desktop(40);
   }
 
   .circle:last-of-type {
-    margin-right: calc(40 / 1680 * 100vw);
+    margin-right: calc-size-desktop(40);
   }
 
   .element {
     position: absolute;
-    max-width: calc(100 / 1680 * 100vw);
-    max-height: calc(55 / 1680 * 100vw);
+    max-width: calc-size-desktop(100);
+    max-height: calc-size-desktop(55);
   }
   .small {
-    max-width: calc(75 / 1680 * 100vw) !important;
-    max-height: calc(40 / 1680 * 100vw) !important;
+    max-width: calc-size-desktop(75) !important;
+    max-height: calc-size-desktop(40) !important;
   }
   .element-1 {
-    top: calc(15 / 1680 * 100vw);
-    left: calc(95 / 1680 * 100vw);
+    top: calc-size-desktop(15);
+    left: calc-size-desktop(95);
   }
   .element-2 {
-    top: calc(80 / 1680 * 100vw);
-    left: calc(40 / 1680 * 100vw);
+    top: calc-size-desktop(80);
+    left: calc-size-desktop(40);
   }
   .element-3 {
-    top: calc(150 / 1680 * 100vw);
-    left: calc(40 / 1680 * 100vw);
+    top: calc-size-desktop(150);
+    left: calc-size-desktop(40);
   }
   .element-4 {
-    top: calc(210 / 1680 * 100vw);
-    left: calc(103 / 1680 * 100vw);
+    top: calc-size-desktop(210);
+    left: calc-size-desktop(103);
   }
   .element-5 {
-    top: calc(70 / 1680 * 100vw);
-    left: calc(155 / 1680 * 100vw);
+    top: calc-size-desktop(70);
+    left: calc-size-desktop(155);
   }
   .element-6 {
-    top: calc(150 / 1680 * 100vw);
-    left: calc(160 / 1680 * 100vw)
+    top: calc-size-desktop(150);
+    left: calc-size-desktop(160);
   }
   @media (max-width: 768px) {
     .circle {
-      width: calc(165 / 375 * 100vw);
-      height: calc(165 / 375 * 100vw);
+      width: calc-size-mobile(165);
+      height: calc-size-mobile(165);
     }
 
     .circle:first-of-type {
-      margin-left: calc(15 / 375 * 100vw);
+      margin-left: calc-size-mobile(15);
     }
 
     .circle:last-of-type {
-      margin-right: calc(15 / 375 * 100vw);
+      margin-right: calc-size-mobile(15);
     }
 
     .element {
       position: absolute;
-      max-width: calc(52 / 375 * 100vw);
-      max-height: calc(28 / 375 * 100vw);
+      max-width: calc-size-mobile(52);
+      max-height: calc-size-mobile(28);
     }
     .small {
-      max-width: calc(45 / 375 * 100vw) !important;
-      max-height: calc(25 / 375 * 100vw) !important;
+      max-width: calc-size-mobile(45) !important;
+      max-height: calc-size-mobile(25) !important;
     }
     .element-1 {
-      top: calc(10 / 375 * 100vw);
-      left: calc(50 / 375 * 100vw);
+      top: calc-size-mobile(10);
+      left: calc-size-mobile(50);
     }
     .element-2 {
-      top: calc(40 / 375 * 100vw);
-      left: calc(20 / 375 * 100vw);
+      top: calc-size-mobile(40);
+      left: calc-size-mobile(20);
     }
     .element-3 {
-      top: calc(80 / 375 * 100vw);
-      left: calc(20 / 375 * 100vw);
+      top: calc-size-mobile(80);
+      left: calc-size-mobile(20);
     }
     .element-4 {
-      top: calc(110 / 375 * 100vw);
-      left: calc(55 / 375 * 100vw);
+      top: calc-size-mobile(110);
+      left: calc-size-mobile(55);
     }
     .element-5 {
-      top: calc(35 / 375 * 100vw);
-      left: calc(80 / 375 * 100vw);
+      top: calc-size-mobile(35);
+      left: calc-size-mobile(80);
     }
     .element-6 {
-      top: calc(80 / 375 * 100vw);
-      left: calc(85 / 375 * 100vw)
+      top: calc-size-mobile(80);
+      left: calc-size-mobile(85);
     }
   }
 
   @media (max-width: 480px) {
     .circle {
-      width: calc(190 / 375 * 100vw);
-      height: calc(190 / 375 * 100vw);
-      margin: calc(10 / 375 * 100vw) 0 !important;
+      width: calc-size-mobile(190);
+      height: calc-size-mobile(190);
+      margin: calc-size-mobile(10) 0 !important;
     }
 
     .element {
       position: absolute;
-      max-width: calc(62 / 375 * 100vw);
-      max-height: calc(38 / 375 * 100vw);
+      max-width: calc-size-mobile(62);
+      max-height: calc-size-mobile(38);
     }
     .small {
-      max-width: calc(55 / 375 * 100vw) !important;
-      max-height: calc(35 / 375 * 100vw) !important;
+      max-width: calc-size-mobile(55) !important;
+      max-height: calc-size-mobile(35) !important;
     }
     .element-1 {
-      top: calc(10 / 375 * 100vw);
-      left: calc(50 / 375 * 100vw);
+      top: calc-size-mobile(10);
+      left: calc-size-mobile(50);
     }
     .element-2 {
-      top: calc(50 / 375 * 100vw);
-      left: calc(20 / 375 * 100vw);
+      top: calc-size-mobile(50);
+      left: calc-size-mobile(20);
     }
     .element-3 {
-      top: calc(90 / 375 * 100vw);
-      left: calc(20 / 375 * 100vw);
+      top: calc-size-mobile(90);
+      left: calc-size-mobile(20);
     }
     .element-4 {
-      top: calc(130 / 375 * 100vw);
-      left: calc(65 / 375 * 100vw);
+      top: calc-size-mobile(130);
+      left: calc-size-mobile(65);
     }
     .element-5 {
-      top: calc(35 / 375 * 100vw);
-      left: calc(110 / 375 * 100vw);
+      top: calc-size-mobile(35);
+      left: calc-size-mobile(110);
     }
     .element-6 {
-      top: calc(80 / 375 * 100vw);
-      left: calc(105 / 375 * 100vw)
+      top: calc-size-mobile(80);
+      left: calc-size-mobile(105);
     }
   }
 </style>

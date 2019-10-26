@@ -22,18 +22,19 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+  @import "../assets/scss/general.scss";
   .select-container {
     max-width: 50%;
     flex: 0 0 50%;
   }
   .select-elements {
-    padding:  calc(10 / 1680 * 100vw);
+    padding:  calc-size-desktop(10);
   }
   .element {
-    margin:  calc(10 / 1680 * 100vw);
-    max-width:  calc(100 / 1680 * 100vw);
-    max-height:  calc(52 / 1680 * 100vw);
+    margin:  calc-size-desktop(10);
+    max-width:  calc-size-desktop(100);
+    max-height:  calc-size-desktop(52);
   }
   .darken {
     display: contents;
@@ -42,10 +43,6 @@
     cursor: pointer;
   }
   div.darken img {
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
   }
 
@@ -59,12 +56,12 @@
     }
 
     .select-elements {
-      padding:  calc(5 / 375 * 100vw);
+      padding:  calc-size-mobile(5);
     }
     .element {
-      margin:  calc(5 / 375 * 100vw);
-      max-width:  calc(70 / 375 * 100vw);
-      max-height:  calc(30 / 375 * 100vw);
+      margin:  calc-size-mobile(5);
+      max-width:  calc-size-mobile(70);
+      max-height:  calc-size-mobile(30);
     }
   }
 

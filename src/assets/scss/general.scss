@@ -1,0 +1,6 @@
+@function calc-size-desktop($value) {
+  @return $value / 1680 * 100vw;
+}
+@function calc-size-mobile($value) {
+  @return $value / 375 * 100vw;
+}
