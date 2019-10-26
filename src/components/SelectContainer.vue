@@ -1,6 +1,6 @@
 <template>
   <div class="select-container">
-    <h2>Залишилось: {{ countDown }} секунд</h2>
+    <h2><span class="time-left">Залишилось: </span> {{ countDown }} секунд</h2>
     <h4>Виберіть спільний елемент:</h4>
     <div class="select-elements">
       <div @click="itemClicked(item)" class="darken" :key="index" v-for="(item, index) in items">
@@ -15,7 +15,7 @@
 		props: ['items', 'commonItem'],
     data() {
 			return {
-				countDown : 60
+				countDown : 3660
       }
     },
 		mounted() {
@@ -44,6 +44,7 @@
 <style>
   .select-container {
     max-width: 50%;
+    flex: 0 0 50%;
   }
   .select-elements {
     padding: 10px;
@@ -69,5 +70,14 @@
 
   div.darken:hover img {
     opacity: 0.6;
+  }
+  @media (max-width: 480px) {
+    .select-container {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .time-left {
+      display: none;
+    }
   }
 </style>

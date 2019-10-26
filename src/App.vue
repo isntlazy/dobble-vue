@@ -23,6 +23,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: calc(60 / 2880 * 100vw);
+}
+body {
+  margin: 0;
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: calc(22 / 375 *100vw);
+    text-align: left;
+    margin-left: calc(15 / 375 *100vw);;
+  }
 }
 </style>

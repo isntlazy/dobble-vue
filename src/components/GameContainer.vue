@@ -15,8 +15,10 @@
     </div>
     <div v-else>
       <div class="cards" v-if="itemsFirst.length === 6 && itemsSecond.length === 6 && !gameOver">
-        <circle-card :items="itemsFirst"></circle-card>
-        <circle-card :items="itemsSecond"></circle-card>
+        <div class="circle-container">
+          <circle-card :items="itemsFirst"></circle-card>
+          <circle-card :items="itemsSecond"></circle-card>
+        </div>
         <select-container @nextCard="nextCard" @endOfTime="endGame" :common-item="commonItem" :items="items"/>
       </div>
       <div v-if="gameOver">
@@ -113,7 +115,7 @@
     font-weight: 400;
     color: #2c3e50;
     text-align: center;
-    font-size: 15px;
+    font-size: calc(15 / 1680 * 100vw);
     transition: all 0.35s;
   }
   .new-game-btn:hover {
@@ -123,12 +125,32 @@
   .description {
     padding: 0 20% 0 20%;
   }
+  .circle-container {
+    max-width: 50%;
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: space-around;
+    /*padding-left: calc(65/ 1680 * 100vw);*/
+    /*padding-right: calc(65 / 1680 * 100vw);*/
+  }
+
   .cards {
     display: flex;
-    margin-left: 100px;
+    flex-wrap: wrap;
   }
   .points {
-    margin-left: 150px;
+    margin-left: calc(150 / 1680 * 100vw);
     text-align: left;
+  }
+  @media (max-width: 480px) {
+    .circle-container {
+      max-width: 100%;
+      flex: 0 0 100%;
+      /*margin: 0 calc(15 / 375 * 100vw);*/
+      justify-content: space-between;
+    }
+    h2 {
+      font-size: calc(20 / 375 * 100vw);
+    }
   }
 </style>
