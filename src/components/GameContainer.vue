@@ -15,11 +15,12 @@
     </div>
     <div v-else>
       <div class="cards" v-if="itemsFirst.length === 6 && itemsSecond.length === 6 && !gameOver">
+        <counter @endOfTime="endGame" ></counter>
         <div class="circle-container">
           <circle-card :items="itemsFirst"></circle-card>
           <circle-card :items="itemsSecond"></circle-card>
         </div>
-        <select-container @nextCard="nextCard" @endOfTime="endGame" :common-item="commonItem" :items="items"/>
+        <select-container @nextCard="nextCard" :common-item="commonItem" :items="items"/>
       </div>
       <div v-if="gameOver">
         <h3>Кінець гри! Ваш результат: {{ points }} балів(и)</h3>
@@ -35,9 +36,10 @@
 <script>
 	import CircleCard from './CircleCard';
 	import SelectContainer from "./SelectContainer";
+	import Counter from "./Counter";
 
 	export default {
-	components: { SelectContainer, CircleCard },
+	components: { SelectContainer, CircleCard, Counter },
   data() {
 		return {
 			newGame: true,
@@ -130,27 +132,36 @@
     flex: 0 0 50%;
     display: flex;
     justify-content: space-around;
-    /*padding-left: calc(65/ 1680 * 100vw);*/
-    /*padding-right: calc(65 / 1680 * 100vw);*/
   }
 
   .cards {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
   .points {
-    margin-left: calc(150 / 1680 * 100vw);
+    margin-left: calc(90 / 1680 * 100vw);
     text-align: left;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .circle-container {
       max-width: 100%;
       flex: 0 0 100%;
-      /*margin: 0 calc(15 / 375 * 100vw);*/
       justify-content: space-between;
     }
     h2 {
       font-size: calc(20 / 375 * 100vw);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .circle-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .points {
+      margin-left: 0;
     }
   }
 </style>
